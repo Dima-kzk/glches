@@ -6,7 +6,7 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
 app.get("/", (request, response) => {
-  response.send("<h1>Hello world</h1>");
+  response.send("<h1>Здоровентки були</h1>");
 });
 
 app.post("/", (request, response) => {
