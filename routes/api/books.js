@@ -1,13 +1,11 @@
 const express = require("express");
 
+const ctrl = require("../../controllers/books");
+
 const router = express.Router();
 
-router.get("/", (request, response) => {
-  response.send("<h1>Здоровеньки були</h1>");
-});
+router.get("/", ctrl.homePage);
 
-router.post("/", (request, response) => {
-  response.send({ body: request.body });
-});
+router.post("/", ctrl.addData);
 
 module.exports = router;
