@@ -1,4 +1,5 @@
 const express = require("express");
+const booksRouter = require("./routes/api/books");
 
 const app = express();
 const bodyParser = require("body-parser");
@@ -6,12 +7,6 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
-app.get("/", (request, response) => {
-  response.send("<h1>Здоровеньки були</h1>");
-});
-
-app.post("/", (request, response) => {
-  response.send({ body: request.body });
-});
+app.use("/api/books", booksRouter);
 
 module.exports = app;
