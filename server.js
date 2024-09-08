@@ -9,9 +9,8 @@ mongoose
   .connect(DB_HOST)
   .then(() => {
     console.log("Database connect success");
+    app.listen(process.env.PORT || 4000, () =>
+      console.log("server is running on " + process.env.PORT)
+    );
   })
   .catch((error) => console.log(error.message));
-
-app.listen(process.env.PORT || 4000, () =>
-  console.log("server is running on " + process.env.PORT)
-);
