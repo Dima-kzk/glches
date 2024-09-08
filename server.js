@@ -13,4 +13,7 @@ mongoose
       console.log("server is running on " + process.env.PORT)
     );
   })
-  .catch((error) => console.log(error.message));
+  .catch((error) => {
+    console.log(error.message);
+    process.exit(1);
+  });
