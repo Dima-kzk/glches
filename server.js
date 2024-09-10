@@ -5,14 +5,14 @@ const mongoose = require("mongoose");
 
 // console.log(process.env.DB_HOST);
 
-const DB_HOST = process.env.DB_HOST;
+const { DB_HOST, PORT = 3000 } = process.env;
 
 mongoose.set("strictQuery", true);
 mongoose
   .connect(DB_HOST)
   .then(() => {
     console.log("Database connect success");
-    app.listen(process.env.PORT || 4000, () =>
+    app.listen(process.env.PORT || 3000, () =>
       console.log("server is running on " + process.env.PORT)
     );
   })
