@@ -1,12 +1,12 @@
-const homePage = (request, response) => {
-  response.send("<h1>Здоровеньки були</h1>");
-};
+const Book = require("../models/book");
 
-const addData = (request, response) => {
-  response.send({ body: request.body });
+const { HttpError, ctrlWrapper } = require("../helpers");
+
+const getAll = async (request, response) => {
+  const result = await Book.find();
+  response.json(result);
 };
 
 module.exports = {
-  homePage,
-  addData,
+  getAll: ctrlWrapper(getAll),
 };
