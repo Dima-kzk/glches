@@ -4,8 +4,6 @@ const ctrl = require("../../controllers/books");
 
 const router = express.Router();
 
-router.get("/", ctrl.homePage);
-
-router.post("/", ctrl.addData);
+router.get("/", ctrl.getAll);
 
 module.exports = router;
