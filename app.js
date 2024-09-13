@@ -22,9 +22,14 @@ app.use((req, res) => {
   res.status(404).json({ message: "Not found" });
 });
 
+// app.use((error, request, response, next) => {
+//   error.message = error.status === undefined ? "Server error" : error.message;
+//   const { status = 500, message } = error;
+//   response.status(status).json({ message });
+// });
+
 app.use((error, request, response, next) => {
-  error.message = error.status === undefined ? "Server error" : error.message;
-  const { status = 500, message } = error;
+  const { status = 500, message = "Server error" } = error;
   response.status(status).json({ message });
 });
 
