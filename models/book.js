@@ -45,8 +45,13 @@ const addShema = Joi.object({
   date: Joi.string().pattern(dateRegexp).required(),
 });
 
+const updateFavoriteSchema = Joi.object({
+  favorite: Joi.boolean().required(),
+});
+
 const schemas = {
   addShema,
+  updateFavoriteSchema,
 };
 
 const Book = model("book", bookSchems);

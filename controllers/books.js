@@ -27,9 +27,27 @@ const updateById = async (request, response) => {
   response.json(result);
 };
 
+// const updateFavorite = async (request, response) => {
+//   const { id } = request.params;
+//   const result = await Book.findByIdAndUpdate(id, request.body, { new: true });
+//   if (!result) throw HttpError(404, "Not found");
+//   response.json(result);
+// };
+
+const deleteById = async (request, response) => {
+  const { id } = request.params;
+  // const result = await Book.findByIdAndDelete(id);
+  const result = await Book.findByIdAndRemove(id);
+  if (!result) throw HttpError(404, "Not found");
+  // response.status(204).send();
+  response.json({ message: "Delete success" });
+};
+
 module.exports = {
   getAll: ctrlWrapper(getAll),
   add: ctrlWrapper(add),
   getById: ctrlWrapper(getById),
   updateById: ctrlWrapper(updateById),
+  updateFavorite: ctrlWrapper(updateById),
+  deleteById: ctrlWrapper(deleteById),
 };
