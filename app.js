@@ -22,6 +22,8 @@ app.use((req, res) => {
   res.status(404).json({ message: "Not found" });
 });
 
+// console.log(process.env.NODE_ENV);
+
 // app.use((error, request, response, next) => {
 //   error.message = error.status === undefined ? "Server error" : error.message;
 //   const { status = 500, message } = error;
